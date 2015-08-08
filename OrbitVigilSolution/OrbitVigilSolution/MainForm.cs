@@ -26,13 +26,36 @@ namespace OrbitVigilSolution
         /// <param name="e"></param>
         private void OrbisVigilMainForm_Load(object sender, EventArgs e)
         {
-            //Remove this 
+            GetDiskConsoleOutput();
+        }
+
+
+        //Class Methods
+        /// <summary>
+        /// Outputs disk information to console
+        /// </summary>
+        private void GetDiskConsoleOutput()
+        {
+            //Gather disk information and output to console
             var disks = DiskDriveWmiWrapper.GetDisks();
             foreach (ManagementObject disk in disks)
             {
-                OutputConsole.Text += disk["Model"].ToString() + Environment.NewLine;
+                OutputConsole.Text += disk[WmiDiskProperties.DiskProperty.Model.ToString()] + Environment.NewLine;
+
+                foreach (var prop in Enum.GetValues(typeof(WmiDiskProperties.DiskProperty)))
+                {
+                    try
+                    {
+                        OutputConsole.Text += prop.ToString() + ": " + disk[prop.ToString()] + Environment.NewLine;
+                    }
+                    catch
+                    {
+                        //Ignore; attribute not supported or initlized
+                    }
+                }
+
+                OutputConsole.Text += Environment.NewLine + Environment.NewLine;
             }
         }
-
     }
 }

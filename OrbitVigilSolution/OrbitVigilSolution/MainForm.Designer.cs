@@ -35,9 +35,16 @@
             this.hardwareTabPage = new System.Windows.Forms.TabPage();
             this.outputTabPage = new System.Windows.Forms.TabPage();
             this.OutputConsole = new System.Windows.Forms.TextBox();
+            this.eventsTabPage = new System.Windows.Forms.TabPage();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsTabPage = new System.Windows.Forms.TabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.diskEventsLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.mainFormTabControl.SuspendLayout();
             this.outputTabPage.SuspendLayout();
+            this.eventsTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -53,12 +60,16 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // helpToolStripMenuItem
             // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
@@ -66,12 +77,14 @@
             // mainFormTabControl
             // 
             this.mainFormTabControl.Controls.Add(this.hardwareTabPage);
+            this.mainFormTabControl.Controls.Add(this.eventsTabPage);
+            this.mainFormTabControl.Controls.Add(this.settingsTabPage);
             this.mainFormTabControl.Controls.Add(this.outputTabPage);
             this.mainFormTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainFormTabControl.Location = new System.Drawing.Point(0, 24);
             this.mainFormTabControl.Name = "mainFormTabControl";
             this.mainFormTabControl.SelectedIndex = 0;
-            this.mainFormTabControl.Size = new System.Drawing.Size(609, 314);
+            this.mainFormTabControl.Size = new System.Drawing.Size(609, 446);
             this.mainFormTabControl.TabIndex = 1;
             // 
             // hardwareTabPage
@@ -79,7 +92,7 @@
             this.hardwareTabPage.Location = new System.Drawing.Point(4, 22);
             this.hardwareTabPage.Name = "hardwareTabPage";
             this.hardwareTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.hardwareTabPage.Size = new System.Drawing.Size(601, 288);
+            this.hardwareTabPage.Size = new System.Drawing.Size(601, 420);
             this.hardwareTabPage.TabIndex = 0;
             this.hardwareTabPage.Text = "Hardware";
             this.hardwareTabPage.UseVisualStyleBackColor = true;
@@ -90,9 +103,9 @@
             this.outputTabPage.Location = new System.Drawing.Point(4, 22);
             this.outputTabPage.Name = "outputTabPage";
             this.outputTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.outputTabPage.Size = new System.Drawing.Size(601, 288);
+            this.outputTabPage.Size = new System.Drawing.Size(601, 420);
             this.outputTabPage.TabIndex = 1;
-            this.outputTabPage.Text = "Console Output";
+            this.outputTabPage.Text = "Console";
             this.outputTabPage.UseVisualStyleBackColor = true;
             // 
             // OutputConsole
@@ -101,14 +114,70 @@
             this.OutputConsole.Location = new System.Drawing.Point(3, 3);
             this.OutputConsole.Multiline = true;
             this.OutputConsole.Name = "OutputConsole";
-            this.OutputConsole.Size = new System.Drawing.Size(595, 282);
+            this.OutputConsole.ReadOnly = true;
+            this.OutputConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OutputConsole.Size = new System.Drawing.Size(595, 414);
             this.OutputConsole.TabIndex = 0;
+            // 
+            // eventsTabPage
+            // 
+            this.eventsTabPage.Controls.Add(this.diskEventsLabel);
+            this.eventsTabPage.Controls.Add(this.listBox1);
+            this.eventsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.eventsTabPage.Name = "eventsTabPage";
+            this.eventsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.eventsTabPage.Size = new System.Drawing.Size(601, 420);
+            this.eventsTabPage.TabIndex = 2;
+            this.eventsTabPage.Text = "Events";
+            this.eventsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "&About";
+            // 
+            // settingsTabPage
+            // 
+            this.settingsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.settingsTabPage.Name = "settingsTabPage";
+            this.settingsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.settingsTabPage.Size = new System.Drawing.Size(601, 420);
+            this.settingsTabPage.TabIndex = 3;
+            this.settingsTabPage.Text = "Settings";
+            this.settingsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(6, 36);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(589, 381);
+            this.listBox1.TabIndex = 0;
+            // 
+            // diskEventsLabel
+            // 
+            this.diskEventsLabel.AutoSize = true;
+            this.diskEventsLabel.Location = new System.Drawing.Point(9, 7);
+            this.diskEventsLabel.Name = "diskEventsLabel";
+            this.diskEventsLabel.Size = new System.Drawing.Size(35, 13);
+            this.diskEventsLabel.TabIndex = 1;
+            this.diskEventsLabel.Text = "label1";
             // 
             // OrbisVigilMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 338);
+            this.ClientSize = new System.Drawing.Size(609, 470);
             this.Controls.Add(this.mainFormTabControl);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -120,6 +189,8 @@
             this.mainFormTabControl.ResumeLayout(false);
             this.outputTabPage.ResumeLayout(false);
             this.outputTabPage.PerformLayout();
+            this.eventsTabPage.ResumeLayout(false);
+            this.eventsTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,6 +205,12 @@
         private System.Windows.Forms.TabPage hardwareTabPage;
         private System.Windows.Forms.TabPage outputTabPage;
         private System.Windows.Forms.TextBox OutputConsole;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.TabPage eventsTabPage;
+        private System.Windows.Forms.TabPage settingsTabPage;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label diskEventsLabel;
     }
 }
 
