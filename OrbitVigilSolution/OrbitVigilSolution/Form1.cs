@@ -7,14 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OrbitVigilSolution.WMIClasses;
+using System.Management;
 
 namespace OrbitVigilSolution
 {
-    public partial class Form1 : Form
+    public partial class OrbisVigilMainForm : Form
     {
-        public Form1()
+        public OrbisVigilMainForm()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// On Main Form Load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OrbisVigilMainForm_Load(object sender, EventArgs e)
+        {
+            //Remove this 
+            var disks = DiskDriveWmiWrapper.GetDisks();
+            string tempOutput;
+            foreach (ManagementObject disk in disks)
+            {
+                tempOutput += disk["Model"].ToString() + ",";
+            }
         }
     }
 }
