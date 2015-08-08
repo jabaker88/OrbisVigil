@@ -28,11 +28,11 @@ namespace OrbitVigilSolution
         {
             //Remove this 
             var disks = DiskDriveWmiWrapper.GetDisks();
-            string tempOutput;
             foreach (ManagementObject disk in disks)
             {
-                tempOutput += disk["Model"].ToString() + ",";
+                OutputConsole.Text += disk["Model"].ToString() + Environment.NewLine;
             }
         }
+
     }
 }
