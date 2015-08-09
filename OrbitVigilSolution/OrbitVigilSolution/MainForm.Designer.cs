@@ -39,7 +39,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsTabPage = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.eventsListBox = new System.Windows.Forms.ListBox();
             this.diskEventsLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.mainFormTabControl.SuspendLayout();
@@ -122,7 +122,7 @@
             // eventsTabPage
             // 
             this.eventsTabPage.Controls.Add(this.diskEventsLabel);
-            this.eventsTabPage.Controls.Add(this.listBox1);
+            this.eventsTabPage.Controls.Add(this.eventsListBox);
             this.eventsTabPage.Location = new System.Drawing.Point(4, 22);
             this.eventsTabPage.Name = "eventsTabPage";
             this.eventsTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -153,25 +153,25 @@
             this.settingsTabPage.Text = "Settings";
             this.settingsTabPage.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // eventsListBox
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.eventsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 36);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(589, 381);
-            this.listBox1.TabIndex = 0;
+            this.eventsListBox.FormattingEnabled = true;
+            this.eventsListBox.Location = new System.Drawing.Point(6, 23);
+            this.eventsListBox.Name = "eventsListBox";
+            this.eventsListBox.Size = new System.Drawing.Size(589, 394);
+            this.eventsListBox.TabIndex = 0;
             // 
             // diskEventsLabel
             // 
             this.diskEventsLabel.AutoSize = true;
-            this.diskEventsLabel.Location = new System.Drawing.Point(9, 7);
+            this.diskEventsLabel.Location = new System.Drawing.Point(6, 3);
             this.diskEventsLabel.Name = "diskEventsLabel";
-            this.diskEventsLabel.Size = new System.Drawing.Size(35, 13);
+            this.diskEventsLabel.Size = new System.Drawing.Size(64, 13);
             this.diskEventsLabel.TabIndex = 1;
-            this.diskEventsLabel.Text = "label1";
+            this.diskEventsLabel.Text = "Disk Events";
             // 
             // OrbisVigilMainForm
             // 
@@ -209,7 +209,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.TabPage eventsTabPage;
         private System.Windows.Forms.TabPage settingsTabPage;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox eventsListBox;
         private System.Windows.Forms.Label diskEventsLabel;
     }
 }

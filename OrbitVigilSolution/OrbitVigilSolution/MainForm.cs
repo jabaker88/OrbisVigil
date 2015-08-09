@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OrbitVigilSolution.WMIClasses;
 using System.Management;
+using System.Diagnostics;
 
 namespace OrbitVigilSolution
 {
@@ -27,6 +28,7 @@ namespace OrbitVigilSolution
         private void OrbisVigilMainForm_Load(object sender, EventArgs e)
         {
             GetDiskConsoleOutput();
+            GetDiskEvents();
         }
 
 
@@ -55,6 +57,45 @@ namespace OrbitVigilSolution
                 }
 
                 OutputConsole.Text += Environment.NewLine + Environment.NewLine;
+            }
+        }
+
+        private void GetDiskEvents()
+        {
+            EventLog[] evtLogs = EventLog.GetEventLogs();
+            //Iterate over all event logs
+            foreach (EventLog evt in evtLogs)
+            {
+                EventLogEntryCollection evtCollection = evt.Entries;
+                try
+                {
+                    //Iterate over each entry
+                    foreach (EventLogEntry entry in evtCollection)
+                    {
+                        //If a disk error has occured, display
+                        if (entry.Source.ToString().ToLower() == "disk")
+                        {
+                            eventsListBox.Items.Add(entry.Message); //Log disk event
+                            try
+                            {
+                                //On Bad block logic
+                                if (entry.Message.ToLower().Contains("bad block"))
+                                {
+                                    //On Bad Blocks, throw exception
+                                    throw new EventLogClasses.HardDriveEventBadBlockException("Bad Block Detected on: " + entry.Message);
+                                }
+                            }
+                            catch (EventLogClasses.HardDriveEventBadBlockException ex)
+                            {
+                                OutputConsole.Text += ex.Message + Environment.NewLine;
+                            }
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+
+                }
             }
         }
     }
